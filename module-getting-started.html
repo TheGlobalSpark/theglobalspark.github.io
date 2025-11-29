@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Getting Started - The Global Spark</title>
+    <link href="./style.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <h2>The Global Spark</h2>
+            </div>
+            <ul class="nav-menu">
+                <li class="nav-item">
+                    <a href="./index.html" class="nav-link">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a href="./about.html" class="nav-link">About</a>
+                </li>
+                <li class="nav-item">
+                    <a href="./learn.html" class="nav-link active">Learn</a>
+                </li>
+                <li class="nav-item">
+                    <a href="./join.html" class="nav-link">Join Us</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <main class="main-content">
+        <section class="section page-header">
+            <div class="container">
+                <h1 class="page-title">Getting Started</h1>
+                <p class="section-description">
+                    Basic computer operations and navigation
+                </p>
+                <div class="carousel-container">
+                    <div class="carousel">
+                        <button class="carousel-btn prev" onclick="changeSlide(-1)">&#10094;</button>
+                        <div class="carousel-slides">
+                            <img src="./src_intro/1.png" class="carousel-slide active" alt="Introduction slide 1">
+                            <img src="./src_intro/2.png" class="carousel-slide" alt="Introduction slide 2">
+                            <img src="./src_intro/3.png" class="carousel-slide" alt="Introduction slide 3">
+                        </div>
+                        <button class="carousel-btn next" onclick="changeSlide(1)">&#10095;</button>
+                    </div>
+                    <div class="carousel-dots">
+                        <span class="dot active" onclick="currentSlide(1)"></span>
+                        <span class="dot" onclick="currentSlide(2)"></span>
+                        <span class="dot" onclick="currentSlide(3)"></span>
+                    </div>
+                </div>
+                <div style="text-align: center; padding: 2rem 0;">
+                    <a href="./learn.html" class="cta-button" style="background: #4f46e5; color: white;">Back to All Modules</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 The Global Spark. Empowering digital futures.</p>
+        </div>
+    </footer>
+
+    <script>
+        let slideIndex = 1;
+        showSlide(slideIndex);
+
+        function changeSlide(n) {
+            showSlide(slideIndex += n);
+        }
+
+        function currentSlide(n) {
+            showSlide(slideIndex = n);
+        }
+
+        function showSlide(n) {
+            const slides = document.getElementsByClassName('carousel-slide');
+            const dots = document.getElementsByClassName('dot');
+            
+            if (n > slides.length) { slideIndex = 1 }
+            if (n < 1) { slideIndex = slides.length }
+            
+            for (let i = 0; i < slides.length; i++) {
+                slides[i].classList.remove('active');
+            }
+            for (let i = 0; i < dots.length; i++) {
+                dots[i].classList.remove('active');
+            }
+            
+            slides[slideIndex - 1].classList.add('active');
+            dots[slideIndex - 1].classList.add('active');
+        }
+    </script>
+</body>
+</html>
